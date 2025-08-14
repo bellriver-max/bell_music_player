@@ -1,4 +1,4 @@
-// List your MP3 files here (must be inside the /music folder)
+// List your MP3 files here (must be inside the /SONGS folder)
 const tracks = [
   "SONGS/@Dilaw - Uhaw (Tayong Lahat) (Lyrics).mp3",
   "SONGS/APO Hiking Society - Panalangin (Official Lyric Video).mp3",
@@ -33,17 +33,21 @@ const tracks = [
 
 const trackList = document.getElementById("trackList");
 const audioPlayer = document.getElementById("audioPlayer");
+const loopBtn = document.getElementById("loopBtn");
+const autoplayBtn = document.getElementById("autoplayBtn");
 
-// Add cache-busting timestamp to avoid browser caching
+let autoplay = false;
+
+// Prevent browser caching
 function noCache(url) {
   return `${url}?t=${Date.now()}`;
 }
 
-// Populate dropdown
-tracks.forEach((track, index) => {
+// Populate dropdown with real file names
+tracks.forEach((track) => {
   const option = document.createElement("option");
   option.value = track;
-  option.textContent = `Track ${index + 1}`;
+  option.textContent = track.split("/").pop().replace(".mp3", "");
   trackList.appendChild(option);
 });
 
@@ -54,4 +58,27 @@ audioPlayer.src = noCache(tracks[0]);
 trackList.addEventListener("change", () => {
   audioPlayer.src = noCache(trackList.value);
   audioPlayer.play();
+});
+
+// Loop button toggle
+loopBtn.addEventListener("click", () => {
+  audioPlayer.loop = !audioPlayer.loop;
+  loopBtn.textContent = audioPlayer.loop ? "Loop: ON" : "Loop: OFF";
+});
+
+// Autoplay button toggle
+autoplayBtn.addEventListener("click", () => {
+  autoplay = !autoplay;
+  autoplayBtn.textContent = autoplay ? "Autoplay: ON" : "Autoplay: OFF";
+});
+
+// When song ends
+audioPlayer.addEventListener("ended", () => {
+  if (autoplay && !audioPlayer.loop) {
+    let nextIndex = trackList.selectedIndex + 1;
+    if (nextIndex >= tracks.length) nextIndex = 0; // wrap to first
+    trackList.selectedIndex = nextIndex;
+    audioPlayer.src = noCache(tracks[nextIndex]);
+    audioPlayer.play();
+  }
 });

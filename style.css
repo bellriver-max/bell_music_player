@@ -1,15 +1,39 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  padding: 20px;
-  background: #f5f5f5;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  margin-bottom: 20px;
 }
 
 #player-container {
-  margin-top: 20px;
+  display: inline-block;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-select {
-  padding: 5px;
-  font-size: 14px;
+.player-element {
+  display: block;
+  margin: 20px auto; /* Adds space between elements */
+}
+
+.button-group button {
+  margin: 0 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-group button.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.button-group button:hover {
+  background-color: #ddd;
 }
