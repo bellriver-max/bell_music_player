@@ -3,26 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple MP3 Player</title>
+  <title>Multi-Playlist MP3 Player</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>MP3 Player</h1>
-  <div id="player-container">
-    <!-- Song selection dropdown -->
-    <select id="trackList"></select>
-    <br>
+  <h1>Multi-Playlist MP3 Player</h1>
 
-    <!-- Audio player -->
-    <audio id="audioPlayer" controls></audio>
-    <br>
-
-    <!-- Control buttons -->
-    <button id="loopBtn">Loop: OFF</button>
-    <button id="autoplayBtn">Autoplay: OFF</button>
+  <!-- Tab Menu -->
+  <div id="tabMenu">
+    <button class="tabButton" data-tab="playlist1">OPM</button>
+    <button class="tabButton" data-tab="playlist2">Playlist 2</button>
+    <button class="tabButton" data-tab="playlist3">Playlist 3</button>
   </div>
 
-  <!-- Link to script -->
+  <!-- Playlist Pages -->
+  <div id="playlist1" class="playlistPage">
+    <h2>OPM</h2>
+    <select class="trackList"></select>
+    <audio class="audioPlayer" controls></audio>
+    <div class="controls">
+      <button class="loopBtn control-button" aria-pressed="false">Loop</button>
+      <button class="autoplayBtn control-button" aria-pressed="false">Autoplay</button>
+    </div>
+  </div>
+
+  <div id="playlist2" class="playlistPage" style="display: none;">
+    <h2>Playlist 2</h2>
+    <select class="trackList"></select>
+    <audio class="audioPlayer" controls></audio>
+    <div class="controls">
+      <button class="loopBtn control-button" aria-pressed="false">Loop</button>
+      <button class="autoplayBtn control-button" aria-pressed="false">Autoplay</button>
+    </div>
+  </div>
+
+  <div id="playlist3" class="playlistPage" style="display: none;">
+    <h2>Playlist 3</h2>
+    <select class="trackList"></select>
+    <audio class="audioPlayer" controls></audio>
+    <div class="controls">
+      <button class="loopBtn control-button" aria-pressed="false">Loop</button>
+      <button class="autoplayBtn control-button" aria-pressed="false">Autoplay</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

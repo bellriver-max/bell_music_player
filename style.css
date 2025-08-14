@@ -1,39 +1,42 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f5f5f5;
+  padding: 20px;
 }
 
-h1 {
+#tabMenu {
   margin-bottom: 20px;
 }
 
-#player-container {
-  display: inline-block;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.player-element {
-  display: block;
-  margin: 20px auto; /* Adds space between elements */
-}
-
-.button-group button {
-  margin: 0 10px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
+.tabButton {
+  padding: 10px 20px;
+  margin: 0 5px;
   cursor: pointer;
 }
 
-.button-group button.active {
-  background-color: #4caf50;
-  color: white;
+.playlistPage {
+  margin-top: 20px;
 }
 
-.button-group button:hover {
-  background-color: #ddd;
+.trackList, .audioPlayer {
+  margin: 10px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.controls button {
+  margin: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #fff;   /* white when disabled */
+  color: #000;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.control-button.active {
+  background-color: #e53935; /* red when enabled */
+  color: #fff;
+  border-color: #e53935;
 }
