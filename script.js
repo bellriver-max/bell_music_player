@@ -32,7 +32,12 @@ const playlistData = {
     "SONGS/Zack Tabudlo YAKAP Lyrics.mp3"
   ],
   playlist2: [],
-  playlist3: []
+  playlist3: [
+    "COMMENTARY/All Tomorrows Audiobook (Full Reading) (1).mp3",
+    "COMMENTARY/the western more disturbing than Blood Meridian..mp3",
+    "COMMENTARY/Trench Crusade Lore Part II _ Narrated lore & relaxing ambient noise.mp3",
+    "COMMENTARY/Trench Crusade Lore _ Full Audiobook & ambient noise for sleep.mp3"
+  ]
 };
 
 // Cache-buster
